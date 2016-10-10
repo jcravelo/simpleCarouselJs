@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="jquery-1.8.2/jquery-1.8.2.js"></script>        
+        <script>
+        $(function(){
+            var img = new Array();
+            $(".img img").each(function(i,v){
+                $(this).attr("id","img"+i);
+                img[i] = "img"+i;
+            });
+            var e=0;
+            setInterval(function(){
+                if(e > 0){
+                    $("#"+img[e]).show(400).fadeIn(900);
+                    $("#"+img[(e-1)]).hide(400).fadeOut(900);
+                }else{
+                    $("#"+img[e]).show(400).fadeIn(900);;
+                }
+                if(e == (img.length-1)){
+                    e=0;
+                    $("#"+img[(img.length-1)]).delay(400).fadeOut(900).hide(1800);
+                }else{
+                   e++;
+                }
+            },2000);            
+        });
+        </script>        
+    </head>
+    <body>
+        <h2>Aqui mi carrusel</h2>
+        <div class="carrusel">
+            <div class="img">
+                <img class="activo" src="img/1.jpg">
+                <img src="img/2.jpg">
+                <img src="img/3.jpg">
+                <img src="img/4.jpg">
+            </div>            
+        </div>
+    </body>
+</html>
